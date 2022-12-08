@@ -5,12 +5,11 @@ import './style.css';
 const body = document.getElementById('body');
 
 // Button elements
-const btnSend = document.getElementById('btnSend');
+// const btnSend = document.getElementById('btnSend');
 const btnClose = document.getElementById('btnClose');
 const btnRegister = document.getElementById('btnRegister');
 const btnLogIn = document.getElementById('btnLogIn');
 const btnLogOut = document.getElementById('btnLogOut');
-const btnScanCode = document.getElementById('btnScanCode');
 const btnOpenWindow = document.getElementById('btnOpenWindow');
 
 // Profile elements
@@ -18,13 +17,13 @@ const email = document.getElementById('email');
 const userId = document.getElementById('userId');
 const pictureUrl = document.getElementById('pictureUrl');
 const displayName = document.getElementById('displayName');
-const statusMessage = document.getElementById('statusMessage');
+// const statusMessage = document.getElementById('statusMessage');
 // QR element
 const code = document.getElementById('code');
 const friendShip = document.getElementById('friendShip');
 
 async function main() {
-  await liff.init({ liffId: '1657689397-eA1Wmlnr' });
+  await liff.init({ liffId: '1657689397-eA1Wmlnr',withLoginOnExternalBrowser:true});
 
   if (!liff.isLoggedIn()) {
     const destinationUrl = window.location.href;
@@ -55,7 +54,7 @@ async function main() {
         btnLogOut.style.display = 'none';
       }
     } else {
-      btnSend.style.display = 'block';
+      // btnSend.style.display = 'block';
       btnRegister.style.display = 'block';
       getUserProfile();
     }
@@ -65,7 +64,7 @@ async function main() {
   await liff.init({ liffId: '1657689397-eA1Wmlnr' });
 
   if (liff.isInClient() && liff.getOS() === 'android') {
-    btnScanCode.style.display = 'block';
+    btnRegister.style.display = 'none';
   }
   btnOpenWindow.style.display = 'none';
 }
@@ -74,10 +73,10 @@ main();
 async function getUserProfile() {
   const profile = await liff.getProfile();
   pictureUrl.src = profile.pictureUrl;
-  userId.innerHTML = '<b>userId:</b> ' + profile.userId;
-  statusMessage.innerHTML = '<b>statusMessage:</b> ' + profile.statusMessage;
-  displayName.innerHTML = '<b>displayName:</b> ' + profile.displayName;
-  email.innerHTML = '<b>email:</b> ' + liff.getDecodedIDToken().email;
+  userId.innerHTML = '<b>UserID:</b> ' + profile.userId;
+  // statusMessage.innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+  displayName.innerHTML = '<b>LineName:</b> ' + profile.displayName;
+  email.innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
 }
 
 async function sendMsg() {
@@ -102,9 +101,9 @@ btnLogOut.onclick = () => {
   liff.logout();
   window.location.reload();
 };
-btnSend.onclick = () => {
-  sendMsg();
-};
+// btnSend.onclick = () => {
+//   sendMsg();
+// };
 
 async function Register() {
   const profile = await liff.getProfile();
@@ -120,13 +119,7 @@ btnRegister.onclick = () => {
   Register();
 };
 
-async function scanCode() {
-  const result = await liff.scanCode();
-  code.innerHTML = '<b>Code: </b>' + result.value;
-}
-btnScanCode.onclick = () => {
-  scanCode();
-};
+
 
 // function getData() {
 //   getUserProfile();
