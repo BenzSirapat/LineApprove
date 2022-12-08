@@ -36,7 +36,6 @@ async function main() {
   const profile = await liff.getProfile();
   const LiffID = profile.userId;
 
-
   console.log(name_p + ',' + LiffID + ',' + email.innerHTML);
   // otp = document.querySelector('#result').append(urlParams.get('param'));
   // document.querySelector('#otp').append(urlParams.get('param'));
@@ -117,6 +116,7 @@ async function Register() {
 }
 
 btnRegister.onclick = () => {
+  confirm('Do you want to register?');
   Register();
 };
 
@@ -128,14 +128,14 @@ btnScanCode.onclick = () => {
   scanCode();
 };
 
-function getData() {
-  getUserProfile();
-  post('https://171.100.141.54:5001/api/Otp/ApproveOtp', {
-    user: userId.innerHTML,
-    otp: '980940',
-    email: email.innerHTML,
-  }).then((data) => console.log(data));
-}
+// function getData() {
+//   getUserProfile();
+//   post('https://171.100.141.54:5001/api/Otp/ApproveOtp', {
+//     user: userId.innerHTML,
+//     otp: '980940',
+//     email: email.innerHTML,
+//   }).then((data) => console.log(data));
+// }
 
 const post = async (url, params) => {
   const response = await fetch(url, {
