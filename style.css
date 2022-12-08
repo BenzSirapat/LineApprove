@@ -15,7 +15,7 @@ button {
   width: 100%;
   display: inline-block;
   font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
   padding: 1rem 1.6rem;
@@ -41,7 +41,7 @@ buttonLogout {
   width: 100%;
   display: inline-block;
   font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1;
   padding: 1rem 1.6rem;
